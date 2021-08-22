@@ -17,7 +17,7 @@ namespace API.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3");
 
-            modelBuilder.Entity("API.Entities.Product", b =>
+            modelBuilder.Entity("Core.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,7 +28,7 @@ namespace API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product");
                 });
 #pragma warning restore 612, 618
         }

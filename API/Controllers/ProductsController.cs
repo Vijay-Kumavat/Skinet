@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
-using API.Entities;
+using Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,16 +18,16 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public ActionResult<List<Product>> GetProduct()
+        [HttpGet, Route("GetProduct")]
+        public async Task<ActionResult<List<TbProduct>>> GetProduct()
         {
-            return Ok(_context.Products.ToList());
+            return Ok(await _context.Product.ToListAsync());
         }
 
-        [HttpGet("{id}")]
-        public string GetOneProduct(int id)
+        [HttpGet, Route("GetProduct/{id}")]
+        public async Task<ActionResult<TbProduct>> GetOneProduct(int id)
         {
-            return "Single product";
+            return await _context.Product.FindAsync(id);
         }
     }
 }

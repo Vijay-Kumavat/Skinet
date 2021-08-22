@@ -31,7 +31,7 @@ namespace API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Skinet API", Version = "API" });
             });
             services.AddDbContext<StoreContext>(x=>x.UseSqlite(_config.GetConnectionString("DefaultConnection")));
         }
@@ -43,7 +43,7 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skinet Public API"));
             }
 
             app.UseHttpsRedirection();
